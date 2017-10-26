@@ -20,6 +20,7 @@ module.exports = {
 		'client/js/**/*.js',
 		'!client/vendor/**/*.js'
 	],
+	fonts: 'client/vendor/font-awesome/fonts/**.*',
 	index: 'client/index.html',
 	assets: 'client/assets/**',
 	images: 'client/img/**/*',

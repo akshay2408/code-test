@@ -26,7 +26,6 @@ var sourcemaps = require('gulp-sourcemaps');
 var preprocess = require('gulp-preprocess');
 var handlebars = require('gulp-compile-handlebars');
 
-
 //////////////////////////////////////////////////////////////////////
 // Setup                                                            //
 //////////////////////////////////////////////////////////////////////
@@ -261,6 +260,16 @@ gulp.task('copy:fav', function() {
   }));
 });
 
+//////////////////////////////////////////////////////////////////////
+// Font                                                            //
+//////////////////////////////////////////////////////////////////////
+gulp.task('fonts', function() {
+  return gulp.src(config.fonts) 
+    .pipe(gulp.dest(config.dist + '/assets/fonts'))
+    .pipe(size({
+      title: 'font'
+  }));
+});
 
 //////////////////////////////////////////////////////////////////////
 // Clean                                                            //
@@ -277,7 +286,8 @@ gulp.task('clean:dist', del.bind(null, [
   'build/dev',
   'build/tmp',
   'build/dist/img/fav',
-  'build/dist/site-config'
+  'build/dist/site-config',
+  'build/dist/assets/fonts',
 ]));
 
 //// Remove partials from live
@@ -297,7 +307,7 @@ gulp.task('clean:manifest', del.bind(null, [
 
 //// Build files for creating a dist release for production
 gulp.task('build:dist', ['clean'], function(cb) {
-  runSequence(['build', 'copy', 'copy:assets', 'images'], ['html'], ['revision'], ['revisionReplace'], 'favicon', 'clean:dist', 'inject:dist', 'critical', 'clean:partials', 'clean:manifest', cb);
+  runSequence(['build', 'copy', 'copy:assets', 'images'], ['html'], ['revision'], ['revisionReplace'], 'favicon', 'clean:dist', 'fonts', 'inject:dist', 'critical', 'clean:partials', 'clean:manifest', cb);
 });
 
 //// Build files for local development

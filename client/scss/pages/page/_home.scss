@@ -2,5 +2,258 @@
 // Home Page: /                                        //
 /////////////////////////////////////////////////////////
 
-// Overides for home page here
-.home {}
+	// Overides for home page here
+//colors
+$color_tarawera_approx: #0e3757;
+$white: #fff;
+$color_oslo_gray_approx: #7b8a97;
+$color_brink_pink_approx: #f56a75;
+$color_gallery_approx: #eee;
+$gray: #ccc;
+
+//fonts
+$font_0: Roboto;
+$font_1: sans-serif;
+
+//@extend-elements
+//original selectors
+//.intro, .awesome-things
+%extend_1 {
+	max-width: 670px;
+	margin: 0 auto 5%;
+	text-align: center;
+	width: 100%;
+}
+
+//original selectors
+//.intro p, .awesome-things p
+%extend_2 {
+	color: $color_oslo_gray_approx;
+	font-size: 22px;
+	font-weight: 300;
+}
+
+//original selectors
+//.link-btn, .submit-btn
+%extend_3 {
+	background-color: $color_tarawera_approx;
+	border: none;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 6px;
+	color: $white;
+	float: right;
+	padding: 12px 24px;
+}
+
+
+body {
+	color: $color_tarawera_approx;
+	margin: 0;
+	padding: 0;
+	font-family: $font_0, $font_1;
+}
+.pd-none {
+	padding: 0;
+}
+.pd-lft {
+	padding-left: 0;
+}
+ul {
+	padding-left: 0;
+}
+a {
+	color: $color_tarawera_approx;
+	&:hover {
+		outline: none;
+		text-decoration: none;
+	}
+	&:focus {
+		outline: none;
+		text-decoration: none;
+	}
+}
+button {
+	&:hover {
+		outline: none;
+	}
+	&:focus {
+		outline: none;
+	}
+}
+.btn {
+	&:hover {
+		outline: none;
+	}
+	&:focus {
+		outline: none;
+	}
+}
+img {
+	max-width: 100%;
+	&.browse-img {
+		display: block;
+		margin: 0 auto;
+	}
+}
+.main-nav {
+	padding: 20px 0 10px;
+	.navbar {
+		min-height: 80px;
+		position: inherit;
+	}
+	.close-icon-btn {
+		background: transparent;
+		border: none;
+		display: none;
+		float: right;
+		top: 10px;
+		position: relative;
+		right: 0;
+	}
+}
+.menu-link-btn {
+	background-color: $color_tarawera_approx;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  margin: 7px 0 0 10px;
+  padding: 14px 20px;
+}
+.intro {
+	@extend %extend_1;
+	h1 {
+		font-weight: 400;
+	}
+	p {
+		@extend %extend_2;
+	}
+}
+.awesome-things {
+	@extend %extend_1;
+	h1 {
+		font-weight: 400;
+	}
+	p {
+		@extend %extend_2;
+		a {
+			color: $color_brink_pink_approx;
+		}
+	}
+}
+.cta-banner {
+	background: $color_brink_pink_approx;
+	margin-bottom: 5%;
+	padding: 20px 0;
+	p {
+		color: $white;
+		display: inline-block;
+		font-size: 28px;
+		font-weight: 400;
+		margin: 0;
+	}
+}
+.link-btn {
+	@extend %extend_3;
+}
+.submit-btn {
+	@extend %extend_3;
+}
+.service-img {
+	text-align: center;
+	h3 {
+		font-size: 26px;
+	}
+	p {
+		color: $color_oslo_gray_approx;
+		font-size: 22px;
+		font-weight: 300;
+	}
+}
+.testimonial {
+	img {
+		left: 14%;
+		position: absolute;
+	}
+	p {
+		display: inline;
+		font-size: 24px;
+		font-weight: 300;
+	}
+	label {
+		color: $color_oslo_gray_approx;
+		display: block;
+		font-weight: 300;
+		margin-top: 20px;
+	}
+}
+.contact-form {
+	max-width: 670px;
+	margin: 0 auto 5%;
+	width: 100%;
+	h1 {
+		font-weight: 400;
+		text-align: center;
+	}
+	p {
+		color: $color_oslo_gray_approx;
+		font-size: 22px;
+		font-weight: 300;
+		text-align: center;
+	}
+	form {
+		padding-top: 5%;
+	}
+	.form-group {
+		position: relative;
+		span {
+			font-size: 10px;
+    	position: absolute;
+    	right: 10px;
+    	bottom: 25%;
+		}
+		input {
+			height: 40px;
+		}
+
+		.form-control {
+			max-width: 100%;
+			width: 100%;
+			border: 1px solid $gray;
+			box-shadow: none;
+			margin-bottom: 15px;
+		}
+	}
+	textarea {
+		resize: none;
+	}
+}
+footer {
+	background: $color_tarawera_approx;
+	color: $white;
+	margin-top: 3%;
+	padding: 20px 0;
+	p {
+		font-size: 18px;
+  	line-height: 43px;
+  	margin: 0;
+  	color: #fff;
+	}
+	span {
+		color: $color_brink_pink_approx;
+	}
+	img {
+		float: right;
+		max-width: 100px;
+	}
+}
+section.testimonial {
+	border-top: 1px solid $color_gallery_approx;
+	border-bottom: 1px solid $color_gallery_approx;
+	margin: 5% 0;
+	padding: 5% 20%;
+	position: relative;
+}
+
+.visible-xs {
+  display: none;
+}
